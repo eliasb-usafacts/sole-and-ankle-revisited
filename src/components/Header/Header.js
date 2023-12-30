@@ -7,6 +7,7 @@ import SuperHeader from '../SuperHeader';
 import MobileMenu from '../MobileMenu';
 import Icon from '../Icon';
 import UnstyledButton from '../UnstyledButton';
+import VisuallyHidden from '../VisuallyHidden';
 
 const Header = () => {
   const [showMobileMenu, setShowMobileMenu] = React.useState(false);
@@ -36,6 +37,7 @@ const Header = () => {
           <Icon id="shopping-bag" />
           <Icon id="search" />
           <UnstyledButton onClick={() => setShowMobileMenu(true)}>
+            <VisuallyHidden>Open menu</VisuallyHidden>
             <Icon id="menu" />
           </UnstyledButton>
         </MobileIcons>
@@ -73,6 +75,7 @@ const MainHeader = styled.div`
 
   @media ${QUERIES.tablet} {
     border-top: 4px solid ${COLORS.gray[900]};
+    justify-content: space-between;
     align-items: center;
     padding: 0px 32px;
   }
@@ -98,6 +101,10 @@ const Nav = styled.nav`
 
 const Side = styled.div`
   flex: 1;
+
+  @media ${QUERIES.tablet} {
+    flex: revert;
+  }
 `;
 
 const NavLink = styled.a`
