@@ -51,7 +51,7 @@ const Overlay = styled(DialogOverlay)`
   bottom: 0;
   right: 0;
   background-color: ${COLORS.overlay};
-  padding-left: 75px;
+  padding-left: 25vw;
 `;
 
 const Content = styled(DialogContent)`
