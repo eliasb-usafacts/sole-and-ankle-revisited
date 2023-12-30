@@ -69,6 +69,7 @@ const MainHeader = styled.div`
   padding: 18px 32px;
   height: 72px;
   border-bottom: 1px solid ${COLORS.gray[300]};
+  overflow-x: auto;
 
   @media ${QUERIES.tablet} {
     border-top: 4px solid ${COLORS.gray[900]};
@@ -83,7 +84,11 @@ const MainHeader = styled.div`
 
 const Nav = styled.nav`
   display: flex;
-  gap: 48px;
+  gap: clamp(
+    1.5rem,
+    9vw - 4rem,
+    5rem
+  );
   margin: 0px 48px;
 
   @media ${QUERIES.tablet} {
