@@ -6,7 +6,7 @@ import { DialogOverlay, DialogContent } from '@reach/dialog';
 import UnstyledButton from '../UnstyledButton';
 import Icon from '../Icon';
 import VisuallyHidden from '../VisuallyHidden';
-import { COLORS, QUERIES } from '../../constants';
+import { COLORS, QUERIES, WEIGHTS } from '../../constants';
 
 const MobileMenu = ({ isOpen, onDismiss }) => {
   if (!isOpen) {
@@ -15,7 +15,7 @@ const MobileMenu = ({ isOpen, onDismiss }) => {
 
   return (
     <Overlay isOpen={isOpen} onDismiss={onDismiss}>
-      <Content>
+      <Content aria-label="Navigation Menu">
         <CloseButton onClick={onDismiss}>
           <Icon id="close" />
           <VisuallyHidden>
@@ -42,10 +42,12 @@ const MobileMenu = ({ isOpen, onDismiss }) => {
 
 const CloseButton = styled(UnstyledButton)`
   align-self: flex-end;
+  padding: 16px;
+  margin: -16px;
 `;
 
 const Overlay = styled(DialogOverlay)`
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   bottom: 0;
@@ -76,11 +78,12 @@ const Nav = styled.nav`
   text-transform: uppercase;
   display: flex;
   flex-direction: column;
-  gap: 22px;
+  gap: 16px;
   font-size: 1.125rem;
 
   & a {
     color: ${COLORS.gray[900]};
+    font-weight: ${WEIGHTS.medium};
     text-decoration: none;
 
     &:first-of-type {
@@ -92,7 +95,7 @@ const Nav = styled.nav`
 const Footer = styled.footer`
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 8px;
 
   & a {
     color: ${COLORS.gray[700]};
